@@ -2,6 +2,17 @@
 
 \usepackage{iftex} % Engine detection.
 
+\ifPDFTeX
+  % Nothing to do for pdftex for now.
+\else\ifLuaTeX
+  \usepackage{fontspec}
+  \setmainfont{Overpass}[Contextuals={WordInitial,WordFinal}]
+\else\ifXeTeX
+  \usepackage{fontspec}
+  \setmainfont{Overpass}[Contextuals={WordInitial,WordFinal}]
+\fi\fi\fi
+
+
 \begin{document}
 
 Hello, \TeX!
