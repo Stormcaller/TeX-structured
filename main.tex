@@ -2,6 +2,10 @@
 
 \usepackage{iftex} % Engine detection.
 \usepackage{geometry} % bringhurst width
+\usepackage{csquotes} % makeouterquote
+
+\MakeOuterQuote{"}
+\MakeInnerQuote{´}
 
 % see https://tex.stackexchange.com/questions/59626/nicely-force-66-characters-per-line
 \newcommand*\GetTextWidth[3][\normalfont]{{#1%
@@ -44,6 +48,8 @@ Hello, \TeX!
 \else
   Running Unknown Engine
 \fi\fi\fi
+
+This is a "outer quote ´and a inner quote´".
 
 \lipsum[2-4]
 
