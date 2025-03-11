@@ -1,6 +1,21 @@
-\documentclass{article}
+\documentclass[english,parskip=half,12pt,a4paper]{scrartcl}
+
+\usepackage{iftex} % Engine detection.
+
 \begin{document}
 
 Hello, \TeX!
+
+\ifPDFTeX
+  Running pdflatex
+\else\ifLuaTeX
+  Running luatex
+\else\ifXeTeX
+  Running xetex
+\else
+  Running Unknown Engine
+\fi\fi\fi
+
+
 
 \end{document}
