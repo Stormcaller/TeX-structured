@@ -1,6 +1,23 @@
 \documentclass[english,parskip=half,12pt,a4paper]{scrartcl}
 
 \usepackage{iftex} % Engine detection.
+\usepackage{geometry} % bringhurst width
+
+% see https://tex.stackexchange.com/questions/59626/nicely-force-66-characters-per-line
+\newcommand*\GetTextWidth[3][\normalfont]{{#1%
+  \settowidth{#2}{abcdefghijklmnopqrstuvwxyz}%
+  \setlength{#2}{0.03193#2}%
+  \addtolength{#2}{0.44961pt}%
+  \setlength{#2}{#3#2}%
+  \global#2=#2}}
+
+% 76 should be about a decent target for now, given the context
+% will be programming/development that may require more characters.
+% also, it's 66 + 10 and reasonably close to the 80 char-per-line standard
+% of terminals as well. should be alright for now.
+\newlength\bringhurstwdt
+\GetTextWidth{\bringhurstwdt}{76}
+\geometry{textwidth=\bringhurstwdt}
 
 \ifPDFTeX
   \usepackage{lmodern}
@@ -12,6 +29,7 @@
   \setmainfont{Overpass}[Contextuals={WordInitial,WordFinal}]
 \fi\fi\fi
 
+\usepackage{lipsum} % tmp
 
 \begin{document}
 
@@ -27,6 +45,8 @@ Hello, \TeX!
   Running Unknown Engine
 \fi\fi\fi
 
+\lipsum[2-4]
 
+\lipsum[6-8]
 
 \end{document}
