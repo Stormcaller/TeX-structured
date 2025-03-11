@@ -3,7 +3,7 @@
 \usepackage{iftex} % Engine detection.
 
 \ifPDFTeX
-  % Nothing to do for pdftex for now.
+  \usepackage{lmodern}
 \else\ifLuaTeX
   \usepackage{fontspec}
   \setmainfont{Overpass}[Contextuals={WordInitial,WordFinal}]
