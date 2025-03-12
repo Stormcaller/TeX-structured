@@ -35,6 +35,11 @@
 
 \usepackage{lipsum} % tmp
 
+% section commands
+\newcommand*{\ta}[1]{\clearpage\section{#1}}
+\newcommand*{\tb}[1]{\subsection{#1}}
+\newcommand*{\tc}[1]{\subsubsection{#1}}
+
 \begin{document}
 
 \input{config.tex}
@@ -43,6 +48,12 @@
 \tsubtitle{}\\
 \tversion{}\\
 
+\ta{A main section}
+Text under main section.
+\tb{Subsection}
+Text under subsection.
+\tc{Subsubsection}
+Text under subsubsection.
 Hello, \TeX!
 
 \ifPDFTeX
